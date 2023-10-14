@@ -21,8 +21,8 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="border-b ">
-      <nav className="flex space-x-6 p-4  max-w-6xl mx-auto items-center">
+    <header className="border-b h-[60px]">
+      <nav className="flex space-x-6 p-4  max-w-7xl mx-auto items-center">
         <Link
           className="text-rose-600 font-bold text-lg flex gap-1 items-center"
           href="/"

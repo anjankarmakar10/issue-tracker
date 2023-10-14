@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bghero {
+  background: #f7ce51;
+  background: linear-gradient(180deg, #d9cff3 10%, #f6e1bf 50%);
+}
+
+.hero-h {
+  min-height: calc(80vh - 60px);
+}
+
+@media (min-width: 768px) {
+  .hero-h {
+    min-height: calc(100vh - 60px);
+  }
+}
