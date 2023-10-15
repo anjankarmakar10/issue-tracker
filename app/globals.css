@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-button {
-  cursor: pointer !important;
-}
-
 .bghero {
   background: #f7ce51;
   background: linear-gradient(180deg, #d9cff3 10%, #f6e1bf 50%);
