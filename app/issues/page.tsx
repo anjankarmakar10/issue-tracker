@@ -1,9 +1,12 @@
 import { Button } from "@radix-ui/themes";
-const Issues = () => {
+import Link from "next/link";
+const IssuesPage = () => {
   return (
-    <div>
-      <Button>Lets go</Button>
-    </div>
+    <section className="max-w-7xl mx-auto p-4">
+      <Button>
+        <Link href="/issues/new">Create new Issue</Link>
+      </Button>
+    </section>
   );
 };
-export default Issues;
+export default IssuesPage;
