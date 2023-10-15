@@ -1,17 +1,18 @@
+import { Text } from "@radix-ui/themes";
 import Link from "next/link";
 
 const About = () => {
   return (
     <section className="bg-[#f8efd6] dark:text-slate-800">
       <div className="max-w-3xl mx-auto py-12 px-4 flex gap-5 flex-col text-lg ">
-        <p>
+        <Text>
           Keeping customers happy is easier said than done, especially if you
           have a large customer base.&nbsp;
-        </p>
-        <p>
+        </Text>
+        <Text>
           <em>After all, running a business isn’t a piece of cake! </em>🍰
-        </p>
-        <p>
+        </Text>
+        <Text>
           Fortunately, you can use tools like{" "}
           <strong>
             <Link href="/">issue tracking software</Link>
@@ -19,9 +20,9 @@ const About = () => {
           to establish a workflow to identify, monitor, and resolve customer
           concerns. This way, your customers<em> end up happy </em>instead of
           <em>hitting a</em> <em>dead end</em>.&nbsp;
-        </p>
+        </Text>
 
-        <p>Let’s go.</p>
+        <Text>Let’s go.</Text>
       </div>
     </section>
   );
