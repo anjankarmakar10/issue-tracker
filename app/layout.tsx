@@ -29,7 +29,6 @@ export default function RootLayout({
         <Theme appearance="light" accentColor="violet">
           <Navbar />
           <main>{children}</main>
-          <ThemePanel />
         </Theme>
       </body>
     </html>
