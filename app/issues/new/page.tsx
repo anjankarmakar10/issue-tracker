@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { createIssueSchema } from "@/app/validationsSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import z, { isValid } from "zod";
+import z from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
 import Spinner from "@/app/components/Spinner";
 
