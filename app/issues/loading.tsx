@@ -1,4 +1,4 @@
-import { Table } from "@radix-ui/themes";
+import { Container, Table } from "@radix-ui/themes";
 
 import IssueActions from "./IssueActions";
 import { Skeleton } from "@/app/components";
@@ -7,7 +7,7 @@ const LoadingIssuesPage = () => {
   const issues = [1, 2, 3, 4, 5];
 
   return (
-    <section className="max-w-7xl mx-auto p-4 flex flex-col gap-4">
+    <Container className="p-4">
       <IssueActions />
       <Table.Root variant="surface">
         <Table.Header>
@@ -40,7 +40,7 @@ const LoadingIssuesPage = () => {
           ))}
         </Table.Body>
       </Table.Root>
-    </section>
+    </Container>
   );
 };
 
