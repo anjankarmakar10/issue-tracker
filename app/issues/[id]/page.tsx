@@ -1,19 +1,8 @@
-import IssueStatusBadge from "@/app/components/IssueStatusBadge";
 import prisma from "@/prisma/client";
-import {
-  Heading,
-  Flex,
-  Card,
-  Text,
-  Box,
-  Button,
-  Grid,
-  Link,
-} from "@radix-ui/themes";
+import { Flex, Box, Grid } from "@radix-ui/themes";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import { Pencil2Icon } from "@radix-ui/react-icons";
 import EditIssueButton from "./EditIssueButton";
+import DeleteIssueButton from "./DeleteIssueButton";
 import IssueDetails from "./IssueDetails";
 interface Params {
   params: { id: string };
@@ -31,7 +20,10 @@ const IssueDetailPage = async ({ params: { id } }: Params) => {
           <IssueDetails issue={issue} />
         </Box>
         <Box>
-          <EditIssueButton issueId={issue.id} />
+          <Flex direction="column" gap="4">
+            <EditIssueButton issueId={issue.id} />
+            <DeleteIssueButton issueId={issue.id} />
+          </Flex>
         </Box>
       </Grid>
     </section>
