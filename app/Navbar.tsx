@@ -5,6 +5,7 @@ import { AiOutlineIssuesClose } from "react-icons/ai";
 import classNames from "classnames";
 import { useSession } from "next-auth/react";
 import { Avatar, Box, DropdownMenu ,Text} from "@radix-ui/themes";
+import { Skeleton } from "./components";
 
 const Navbar = () => {
   const links = [
@@ -53,6 +54,7 @@ const Navbar = () => {
         </ul>
 
         <Box style={{ marginLeft: "auto" }}>
+        
           {status === "authenticated" && (
              <DropdownMenu.Root>
              <DropdownMenu.Trigger>
@@ -75,6 +77,9 @@ const Navbar = () => {
                </DropdownMenu.Item>
              </DropdownMenu.Content>
            </DropdownMenu.Root>
+          )}
+          {status === "loading" && (
+           <Skeleton width="3rem"  />
           )}
           {status === "unauthenticated" && (
             <Link href="/api/auth/signin">Login</Link>
