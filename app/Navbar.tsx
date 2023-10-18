@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { AiOutlineIssuesClose } from "react-icons/ai";
 import classNames from "classnames";
 import { useSession } from "next-auth/react";
-import { Box } from "@radix-ui/themes";
+import { Avatar, Box, DropdownMenu ,Text} from "@radix-ui/themes";
 
 const Navbar = () => {
   const links = [
@@ -54,7 +54,27 @@ const Navbar = () => {
 
         <Box style={{ marginLeft: "auto" }}>
           {status === "authenticated" && (
-            <Link href="/api/auth/signout">Log out</Link>
+             <DropdownMenu.Root>
+             <DropdownMenu.Trigger>
+               <Avatar
+                 src={session.user!.image!}
+                 fallback="?"
+                 size="2"
+                 radius="full"
+                 className="cursor-pointer"
+               />
+             </DropdownMenu.Trigger>
+             <DropdownMenu.Content>
+               <DropdownMenu.Label>
+                 <Text size="2">
+                   {session.user!.email}
+                 </Text>
+               </DropdownMenu.Label>
+               <DropdownMenu.Item>
+                  <Link href="/api/auth/signout">Log out</Link>
+               </DropdownMenu.Item>
+             </DropdownMenu.Content>
+           </DropdownMenu.Root>
           )}
           {status === "unauthenticated" && (
             <Link href="/api/auth/signin">Login</Link>
