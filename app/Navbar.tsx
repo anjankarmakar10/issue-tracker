@@ -3,6 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiOutlineIssuesClose } from "react-icons/ai";
 import classNames from "classnames";
+import { useSession } from "next-auth/react";
+import { Box } from "@radix-ui/themes";
+
 const Navbar = () => {
   const links = [
     {
@@ -20,6 +23,7 @@ const Navbar = () => {
   ];
 
   const path = usePathname();
+  const { status, data: session } = useSession();
 
   return (
     <header className="border-b h-[60px] bg-white sticky z-50 top-0">
@@ -47,6 +51,15 @@ const Navbar = () => {
             </Link>
           ))}
         </ul>
+
+        <Box style={{ marginLeft: "auto" }}>
+          {status === "authenticated" && (
+            <Link href="/api/auth/signout">Log out</Link>
+          )}
+          {status === "unauthenticated" && (
+            <Link href="/api/auth/signin">Login</Link>
+          )}
+        </Box>
       </nav>
     </header>
   );
