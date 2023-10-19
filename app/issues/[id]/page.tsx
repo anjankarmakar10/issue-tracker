@@ -12,7 +12,6 @@ interface Params {
 }
 
 const IssueDetailPage = async ({ params: { id } }: Params) => {
-
   const session = await getServerSession(authOptions);
 
   const issue = await prisma.issue.findUnique({ where: { id } });
@@ -25,15 +24,15 @@ const IssueDetailPage = async ({ params: { id } }: Params) => {
         <Box className="col-span-4">
           <IssueDetails issue={issue} />
         </Box>
-        {
-          session && <Box>
-          <Flex direction="column" gap="4">
-            <AssigneeSelect/>
-            <EditIssueButton issueId={issue.id} />
-            <DeleteIssueButton issueId={issue.id} />
-          </Flex>
-        </Box>
-        }
+        {session && (
+          <Box>
+            <Flex direction="column" gap="4">
+              <AssigneeSelect issue={issue} />
+              <EditIssueButton issueId={issue.id} />
+              <DeleteIssueButton issueId={issue.id} />
+            </Flex>
+          </Box>
+        )}
       </Grid>
     </section>
   );
