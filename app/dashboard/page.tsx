@@ -3,6 +3,7 @@ import prisma from "@/prisma/client";
 import IssueChart from "./IssueChart";
 import IssueSummary from "./IssueSummary";
 import LatestIssues from "./LatestIssues ";
+import { Metadata } from "next";
 
 export default async function Dashboard() {
   const open = await prisma.issue.count({
@@ -27,3 +28,8 @@ export default async function Dashboard() {
     </Container>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Dashboard of issues",
+};
