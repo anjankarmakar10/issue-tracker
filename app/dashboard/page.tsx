@@ -1,6 +1,6 @@
 import { Container } from "@radix-ui/themes";
 import prisma from "@/prisma/client";
-import IssueSummary from "./IssueSummary";
+import IssueChart from "./IssueChart";
 
 export default async function Dashboard() {
   const open = await prisma.issue.count({
@@ -15,7 +15,7 @@ export default async function Dashboard() {
 
   return (
     <Container className="p-4">
-      <IssueSummary closed={closed} inProgress={inProgress} open={open} />
+      <IssueChart closed={closed} inProgress={inProgress} open={open} />
     </Container>
   );
 }
