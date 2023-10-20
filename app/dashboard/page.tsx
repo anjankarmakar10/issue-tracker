@@ -1,19 +1,10 @@
-import { Pagination } from "@/app/components";
 import { Container } from "@radix-ui/themes";
+import LatestIssues from "./LatestIssues ";
 
-export default function Dashboard({
-  searchParams,
-}: {
-  searchParams: { page: string };
-}) {
+export default function Dashboard() {
   return (
     <Container className="p-4">
-      <div>Hello World</div>
-      <Pagination
-        itemCount={100}
-        pageSize={10}
-        currentPage={parseInt(searchParams.page)}
-      />
+      <LatestIssues />
     </Container>
   );
 }
