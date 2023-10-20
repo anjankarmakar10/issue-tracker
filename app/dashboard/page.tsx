@@ -1,6 +1,8 @@
-import { Container } from "@radix-ui/themes";
+import { Container, Flex, Grid } from "@radix-ui/themes";
 import prisma from "@/prisma/client";
 import IssueChart from "./IssueChart";
+import IssueSummary from "./IssueSummary";
+import LatestIssues from "./LatestIssues ";
 
 export default async function Dashboard() {
   const open = await prisma.issue.count({
@@ -15,7 +17,13 @@ export default async function Dashboard() {
 
   return (
     <Container className="p-4">
-      <IssueChart closed={closed} inProgress={inProgress} open={open} />
+      <Grid columns={{ initial: "1", md: "2" }} gap="5">
+        <Flex direction="column" gap="5">
+          <IssueSummary open={open} inProgress={inProgress} closed={closed} />
+          <IssueChart open={open} inProgress={inProgress} closed={closed} />
+        </Flex>
+        <LatestIssues />
+      </Grid>
     </Container>
   );
 }
