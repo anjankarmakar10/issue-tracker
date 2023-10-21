@@ -29,7 +29,9 @@ export default async function Dashboard() {
   );
 }
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Dashboard",
-  description: "Dashboard of issues",
+  description: "View a summary of project issues",
 };
