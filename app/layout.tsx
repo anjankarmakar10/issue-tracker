@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={inter.variable}>
         <QueryClientProvider>
           <AuthProvider>
-            <Theme appearance="light" accentColor="violet">
+            <Theme accentColor="violet">
               <Navbar />
               <main>{children}</main>
             </Theme>
